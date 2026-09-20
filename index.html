@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Apple Music — Dark Blue</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- =========================
+       NAME MODAL
+  ========================== -->
+
+    <div class="name-modal hidden" id="nameModal">
+      <div class="name-modal-box">
+        <div class="name-modal-icon">♪</div>
+
+        <h2>Hey 👋</h2>
+
+        <p>How should I call you?</p>
+
+        <input
+          type="text"
+          id="nameInput"
+          placeholder="Enter your name"
+          maxlength="30"
+          autocomplete="off"
+        />
+
+        <button id="saveNameBtn" class="primary-btn">Continue</button>
+      </div>
+    </div>
+
+    <!-- =========================
+       MAIN APP
+  ========================== -->
+
+    <div class="app">
+      <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-icon">♪</div>
+
+          <div>
+            <h1>Apple Music</h1>
+
+            <span> Your music, your way </span>
+          </div>
+        </div>
+
+        <nav>
+          <p class="nav-label">Library</p>
+
+          <button class="nav-item active" data-section="home">
+            <span>⌂</span>
+            Homepage
+          </button>
+
+          <button class="nav-item" data-section="liked">
+            <span>♡</span>
+            Liked Songs
+          </button>
+
+          <button class="nav-item" data-section="playlist">
+            <span>☷</span>
+            Playlist
+          </button>
+        </nav>
+
+        <!-- =========================
+           USER PROFILE
+      ========================== -->
+
+        <div class="sidebar-bottom">
+          <div class="profile-card">
+            <div class="avatar" id="userAvatar">U</div>
+
+            <div>
+              <strong id="userName"> User </strong>
+
+              <small> Apple Music Member </small>
+            </div>
+
+            <button
+              class="dots"
+              id="changeNameBtn"
+              aria-label="Change account name"
+            >
+              •••
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+      <main class="main">
+        <!-- =========================
+           TOP BAR
+      ========================== -->
+
+        <header class="topbar">
+          <div class="search-box">
+            <span> ⌕ </span>
+
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Search songs, artists, albums..."
+            />
+          </div>
+
+          <button class="account-btn" id="accountBtn">
+            <span id="accountInitial"> U </span>
+
+            <span> Account </span>
+          </button>
+        </header>
+
+        <!-- =========================
+           HOME SECTION
+      ========================== -->
+
+        <section class="content" id="homeSection">
+          <!-- HERO -->
+
+          <div class="hero">
+            <div>
+              <p class="eyebrow">Listen now</p>
+
+              <h2>
+                Music that moves<br />
+                <em>you.</em>
+              </h2>
+
+              <p class="hero-text">
+                Discover your favourites and keep the music playing.
+              </p>
+
+              <button class="primary-btn" id="playFeatured">
+                ▶ Play Featured
+              </button>
+            </div>
+
+            <div class="hero-disc">♪</div>
+          </div>
+
+          <!-- RECENTLY PLAYED -->
+
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Made for you</p>
+
+              <h3>Recently Played</h3>
+            </div>
+
+            <button class="see-all" id="seeAll">See All</button>
+          </div>
+
+          <div class="song-grid" id="songGrid"></div>
+        </section>
+
+        <!-- =========================
+           LIKED SONGS SECTION
+      ========================== -->
+
+        <section class="content hidden" id="likedSection">
+          <div class="page-title">
+            <p class="eyebrow">Your library</p>
+
+            <h2>Liked Songs</h2>
+
+            <p>Songs you've marked as favourites.</p>
+          </div>
+
+          <div class="song-grid" id="likedGrid"></div>
+        </section>
+
+        <!-- =========================
+           PLAYLIST SECTION
+      ========================== -->
+
+        <section class="content hidden" id="playlistSection">
+          <!-- PLAYLIST PAGE HEADING -->
+
+          <div class="playlist-page-heading">
+            <div class="page-title">
+              <p class="eyebrow">Your collection</p>
+
+              <h2>Playlist</h2>
+
+              <p>Create and manage your personal playlists.</p>
+            </div>
+
+            <!-- CREATE PLAYLIST BUTTON -->
+
+            <button
+              class="primary-btn create-playlist-btn"
+              id="createPlaylistBtn"
+            >
+              + Create Playlist
+            </button>
+          </div>
+
+          <!-- PLAYLIST CONTENT -->
+
+          <div class="playlist-box" id="playlistBox"></div>
+        </section>
+      </main>
+
+      <!-- =========================
+         MUSIC PLAYER
+    ========================== -->
+
+      <footer class="player">
+        <!-- NOW PLAYING -->
+
+        <div class="now-playing">
+          <div class="mini-art" id="playerArt">♪</div>
+
+          <div>
+            <strong id="playerTitle"> Select a song </strong>
+
+            <small id="playerArtist"> Nothing playing </small>
+          </div>
+
+          <button class="heart" id="likeBtn" aria-label="Like song">♡</button>
+        </div>
+
+        <!-- CONTROLS -->
+
+        <div class="controls">
+          <div class="control-buttons">
+            <button id="prevBtn" title="Previous">⏮</button>
+
+            <button class="play-btn" id="playBtn" title="Play">▶</button>
+
+            <button id="nextBtn" title="Next">⏭</button>
+          </div>
+
+          <!-- TIMELINE -->
+
+          <div class="timeline-row">
+            <span id="currentTime"> 0:00 </span>
+
+            <input
+              id="progress"
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+              aria-label="Song timeline"
+            />
+
+            <span id="duration"> 0:00 </span>
+          </div>
+        </div>
+
+        <!-- VOLUME -->
+
+        <div class="volume">
+          <span> 🔊 </span>
+
+          <input
+            id="volume"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.4"
+            aria-label="Sound level"
+          />
+        </div>
+      </footer>
+    </div>
+
+    <!-- AUDIO -->
+
+    <audio id="audio"></audio>
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
